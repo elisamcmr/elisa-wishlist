@@ -8,6 +8,14 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+# Add at the beginning of the file
+puts "Creating admin user..."
+User.create!(
+  email: "elisa@email.com",
+  password: "azertyuiop",
+  admin: true
+)
+
 # Clear existing data
 puts "Cleaning database..."
 Bookmark.destroy_all

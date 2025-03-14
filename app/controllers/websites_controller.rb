@@ -1,4 +1,6 @@
 class WebsitesController < ApplicationController
+  before_action :authenticate_admin!, except: [:index]
+
   def index
     @categories = Website.distinct.pluck(:category)
     @selected_category = params[:category]

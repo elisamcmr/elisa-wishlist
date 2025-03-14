@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_admin!
+
   def new
     @item = Item.new
     @item.bookmarks.build(list_id: params[:list_id]) if params[:list_id]

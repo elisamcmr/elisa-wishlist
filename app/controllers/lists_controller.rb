@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show]
+
   def index
     @lists = List.all
   end
