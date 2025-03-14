@@ -1,0 +1,20 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6">
+      <h1 class="mb-4">Add a new item</h1>
+
+      <%= simple_form_for @item do |f| %>
+        <%= f.input :name %>
+        <%= f.input :url %>
+        <%= f.input :description %>
+        <%= f.input :price %>
+        <%= f.simple_fields_for :bookmarks do |b| %>
+          <%= b.association :list,
+                          collection: List.all,
+                          prompt: "Choose a list" %>
+        <% end %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

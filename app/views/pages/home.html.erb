@@ -1,0 +1,41 @@
+<div class="banner" style="background-color: #f8f9fa; padding: 100px 0;">
+  <div class="container">
+    <h1 class="display-4 mb-4">Welcome to Your Wishlist</h1>
+    <p class="lead mb-5">Keep track of everything you dream about in organized lists.</p>
+  </div>
+</div>
+
+<div class="container py-5">
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm">
+        <%= link_to lists_path, class: "text-decoration-none text-dark" do %>
+          <div class="card-body text-center p-5">
+            <i class="fas fa-list fa-3x mb-3"></i>
+            <h2 class="card-title">My Lists</h2>
+            <p class="card-text text-muted">View and manage your wishlists</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body text-center p-5">
+          <h2 class="card-title mb-4">Get Inspired</h2>
+          <div class="d-grid gap-3">
+            <%= link_to "https://pinterest.com", target: "_blank", class: "btn btn-outline-primary" do %>
+              <i class="fab fa-pinterest me-2"></i>Pinterest
+            <% end %>
+            <%= link_to "https://etsy.com", target: "_blank", class: "btn btn-outline-primary" do %>
+              <i class="fab fa-etsy me-2"></i>Etsy
+            <% end %>
+            <%= link_to "https://amazon.com", target: "_blank", class: "btn btn-outline-primary" do %>
+              <i class="fab fa-amazon me-2"></i>Amazon
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
