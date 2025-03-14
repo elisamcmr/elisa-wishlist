@@ -1,21 +1,30 @@
-<div class="container py-5">
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h1>My Lists</h1>
+<div class="banner mb-4" style="height: 400px; background-image: url('<%= asset_path("list.jpeg") %>'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; color: white; text-align: center;">
+<div class="d-flex justify-content-between align-items-center mb-4">
     <% if current_user&.admin? %>
+      <h1 style="color: white; font-weight: bold; font-size: 60px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">My Lists</h1>
       <%= link_to "Create a new list", new_list_path, class: "btn btn-primary" %>
+    <% else %>
+      <h1 style="color: white; font-weight: bold; font-size: 60px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">Elisa's Lists</h1>
     <% end %>
   </div>
+</div>
+
+<div class="container py-5">
 
   <div class="row">
     <% @lists.each do |list| %>
       <div class="col-12 col-sm-6 col-md-4 mb-4">
         <%= link_to list_path(list), class: "text-decoration-none" do %>
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title"><%= list.name %></h5>
-              <p class="card-text text-muted"><%= list.description %></p>
+          <div class="card border-0 shadow-sm position-relative" style="border-radius: 15px; height: 250px;">
+            <% if list.photo.attached? %>
+              <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key %>'); height: 100%; background-size: cover; background-position: center; border-radius: 15px; position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></div>
+            <% else %>
+              <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path('list-placeholder.jpeg') %>'); height: 100%; background-size: cover; background-position: center; border-radius: 15px; position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></div>
+            <% end %>
+            <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative" style="background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7)); color: white; border-radius: 15px; text-align: center;">
+              <h4 class="card-title fw-bold" style="font-size: 28px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><%= list.name %></h4>
               <p class="card-text">
-                <small class="text-muted">
+                <small>
                   <%= pluralize(list.bookmarks.count, 'wish') %>
                 </small>
               </p>
