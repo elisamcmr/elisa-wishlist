@@ -1,0 +1,36 @@
+<div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Inspiration Websites</h1>
+    <%= link_to "Add a website", new_website_path, class: "btn btn-primary" %>
+  </div>
+
+  <div class="mb-4">
+    <div class="btn-group">
+      <%= link_to "All", websites_path,
+          class: "btn btn-outline-primary #{@selected_category.nil? ? 'active' : ''}" %>
+
+      <% @categories.each do |category| %>
+        <%= link_to category.titleize,
+            websites_path(category: category),
+            class: "btn btn-outline-primary #{@selected_category == category ? 'active' : ''}" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <% @websites.each do |website| %>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <span class="badge bg-secondary mb-2"><%= website.category %></span>
+            <h5 class="card-title"><%= website.name %></h5>
+            <p class="card-text text-muted"><%= website.description %></p>
+            <%= link_to "Visit Site", website.url,
+                class: "btn btn-outline-primary",
+                target: "_blank" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

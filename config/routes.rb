@@ -14,4 +14,5 @@ Rails.application.routes.draw do
 
   resources :bookmarks, only: [:destroy]
   resources :items, only: %i[new create]
+  resources :websites, only: %i[index new create]
 end

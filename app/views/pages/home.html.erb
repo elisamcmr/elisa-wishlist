@@ -24,14 +24,8 @@
         <div class="card-body text-center p-5">
           <h2 class="card-title mb-4">Get Inspired</h2>
           <div class="d-grid gap-3">
-            <%= link_to "https://pinterest.com", target: "_blank", class: "btn btn-outline-primary" do %>
-              <i class="fab fa-pinterest me-2"></i>Pinterest
-            <% end %>
-            <%= link_to "https://etsy.com", target: "_blank", class: "btn btn-outline-primary" do %>
-              <i class="fab fa-etsy me-2"></i>Etsy
-            <% end %>
-            <%= link_to "https://amazon.com", target: "_blank", class: "btn btn-outline-primary" do %>
-              <i class="fab fa-amazon me-2"></i>Amazon
+            <%= link_to websites_path, class: "btn btn-outline-primary" do %>
+              <i class="fas fa-compass me-2"></i>Browse Inspiration Sites
             <% end %>
           </div>
         </div>

@@ -106,3 +106,33 @@ Bookmark.create!(item: watch, list: christmas)
 Bookmark.create!(item: headphones, list: home)
 
 puts "Added cross-list items"
+
+# Add after your existing seeds
+puts "Creating inspiration websites..."
+
+websites_data = [
+  {
+    name: "Pinterest",
+    url: "https://pinterest.com",
+    category: "Social Media",
+    description: "Visual discovery platform for inspiration and ideas"
+  },
+  {
+    name: "Etsy",
+    url: "https://etsy.com",
+    category: "Marketplace",
+    description: "Global marketplace for unique and creative goods"
+  },
+  {
+    name: "Not on the High Street",
+    url: "https://www.notonthehighstreet.com",
+    category: "Marketplace",
+    description: "Curated marketplace for unique gifts and products"
+  }
+]
+
+websites_data.each do |website_data|
+  Website.create!(website_data)
+end
+
+puts "Created #{Website.count} inspiration websites"
