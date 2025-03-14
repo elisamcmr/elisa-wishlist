@@ -1,7 +1,37 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <style>
+    .navbar-lewagon {
+      justify-content: space-between;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .navbar-lewagon .navbar-collapse {
+      flex-grow: 0;
+    }
+
+    .navbar-lewagon .navbar-brand img {
+      width: 40px;
+    }
+
+    .nav-link {
+      transition: color 0.2s ease;
+    }
+    .nav-link:hover {
+      color: #fd9608 !important;
+    }
+    .btn-link.nav-link:hover {
+      color: #fd9608 !important;
+    }
+  </style>
+
   <div class="container">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <i class="fas fa-gift"></i>
+      <i class="fa-sharp fa-regular fa-heart fa-lg" style="color: #fd9608;"></i>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
@@ -28,13 +58,13 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "My Lists", lists_path, class: "nav-link" %>
+            <%= link_to "Lists", lists_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Get Inspired", websites_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Admin Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>
